@@ -7,4 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'User\\Localhost\\' => array($baseDir . '/src'),
+    'Scheb\\YahooFinanceApi\\' => array($vendorDir . '/scheb/yahoo-finance-api/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
+    'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
+    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
+    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
+    'Codenixsv\\CoinGeckoApi\\' => array($vendorDir . '/codenix-sv/coingecko-api/src'),
 );
