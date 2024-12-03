@@ -1,0 +1,14 @@
+{
+    "name": "user/localhost",
+    "autoload": {
+        "psr-4": {
+            "User\\Localhost\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Xpanutel"
+        }
+    ],
+    "require": {}
+}
