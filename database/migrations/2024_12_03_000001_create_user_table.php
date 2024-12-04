@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . 'app/config/connect.php';
+$startTime = microtime(true);
 
 $sql = "CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -11,9 +11,10 @@ $sql = "CREATE TABLE users (
 )";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Table users created successfully\n";
+    $endTime = microtime(true);
+    $executionTime = $endTime - $startTime;
+    echo "Table users created successfully [" . number_format($executionTime, 3) . " seconds]\n";
 } else {
     echo "Error creating table: " . $conn->error . "\n";
 }
-
-$conn->close();
+?>

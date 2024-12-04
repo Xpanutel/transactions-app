@@ -2,16 +2,53 @@
 
 require_once __DIR__ . '/app/config/connect.php';
 
+if (!defined('DIR')) {
+    define('DIR', __DIR__);
+}
+
+$sql = "SHOW TABLES";
+$result = $conn->query($sql);
+
+if ($result === false) {
+    die("Error getting the list of tables: " . $conn->error);
+}
+
+$tables = [];
+while ($row = $result->fetch_assoc()) {
+    $tables[] = reset($row); 
+}
+
+$startTime = microtime(true);
+
+foreach ($tables as $table) {
+    $endTime = microtime(true);
+    $executionTime = $endTime - $startTime;
+    $dropSql = "DROP TABLE `$table`";
+    if ($conn->query($dropSql) === true) {
+        echo "Table '$table' successfully deleted [" . number_format($executionTime, 3) . " seconds]\n";
+    } else {
+        echo "Table deletion error '$table': " . $conn->error;
+    }
+}
+
 $files = [
     '2024_12_03_000001_create_user_table.php',
-    '2024_12_03_000003_create_portfolios_table.php',
-    '2024_12_03_000004_create_transactions_table.php'
+    '2024_12_03_000002_create_portfolios_table.php',
+    '2024_12_03_000003_create_transactions_table.php'
 ];
 
 foreach ($files as $file) {
-    if (file_exists($file)) {
-        require_once __DIR__ . '/database/migrations/' . $file;
+    $filePath = DIR . '/database/migrations/' . $file;
+    
+    if (file_exists($filePath)) {
+        try {
+            require_once $filePath;
+        } catch (\Exception $e) {
+            error_log("Error including file $file: " . $e->getMessage());
+        }
     } else {
         echo "File $file not found.\n";
     }
 }
+
+$conn->close();

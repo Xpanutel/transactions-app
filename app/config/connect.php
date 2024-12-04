@@ -3,7 +3,7 @@
 $servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
-$dbname = ""; 
+$dbname = "transactions-app"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

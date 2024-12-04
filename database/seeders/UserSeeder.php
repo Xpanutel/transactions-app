@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/app/config/connect.php';
-
 $users = [
     [
         'username' => 'john_doe',
@@ -35,7 +33,3 @@ foreach ($users as $user) {
         echo "Error creating user " . $user['username'] . ": " . $stmt->error . "\n";
     }
 }
-
-
-$stmt->close();
-$conn->close();
