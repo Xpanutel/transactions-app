@@ -62,7 +62,8 @@
 
 ## Database Diagram
 
-```mermaid
+```
+mermaid
 erDiagram
 	portfolios ||--o{ users : references
 	transactions ||--o{ users : references
