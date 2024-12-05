@@ -1,15 +1,20 @@
 <?php
 
-require __DIR__ . '/../Models/CryptoModel.php';
+namespace Project\Controllers;
 
-class CryptoController {
+use \Core\Controller;
+
+class CryptoController extends Controller 
+{
     private $model;
 
-    public function __construct() {
+    public function __construct() 
+    {
         $this->model = new CryptoModel();
     }
 
-    public function index() {
+    public function index() 
+    {
         $price = null; // Инициализация переменной
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['currency'])) {
@@ -23,5 +28,3 @@ class CryptoController {
         include __DIR__ . '/../Views/CryptoView.php';
     }
 }
-$test = new CryptoController();
-$test->index();
