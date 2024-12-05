@@ -1,9 +1,8 @@
 <?php
 
-namespace App\UserController;
+namespace App\Controller; 
 
-use App\UserModel\UserModel;
-require_once __DIR__ . '/app/config/connect.php';
+use App\Model\UserModel;
 
 class UserController {
     private $conn;
@@ -22,6 +21,10 @@ class UserController {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $email = $_POST['email'];
+
+            if (empty($username) || empty($password) || empty($email)) {
+                throw new Exception("All fields are required.");
+            }
 
             try {
                 $this->userModel->createUser($username, $password, $email);

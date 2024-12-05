@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UserModel;
+namespace App\Models; 
 
 class UserModel {
     private $conn;
@@ -17,10 +17,6 @@ class UserModel {
     }
 
     public function create() {
-        if (empty($username) || empty($password) || empty($email)) {
-            throw new Exception("All fields are required.");
-        }
-
         $stmt = $this->conn->prepare('INSERT INTO users (username, password, email) VALUES (?, ?, ?)');
 
         if ($stmt === false) {
