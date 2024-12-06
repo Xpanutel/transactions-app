@@ -1,16 +1,16 @@
 <?php
-	namespace Project\Models;
-	use \Core\Model;
+namespace Project\Models;
+use \Core\Model;
 	
-	class Page extends Model
+class Page extends Model
+{
+	public function getById($id)
 	{
-		public function getById($id)
-		{
-			return $this->findOne("SELECT * FROM page WHERE id=$id");
-		}
-		
-		public function getAll()
-		{
-			return $this->findMany("SELECT id, title FROM page");
-		}
+		return $this->findOne("SELECT * FROM page WHERE id=$id");
 	}
+		
+	public function getAll()
+	{
+		return $this->findMany("SELECT id, title FROM page");
+	}
+}

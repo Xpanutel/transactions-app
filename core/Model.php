@@ -26,4 +26,16 @@
 			
 			return $data;
 		}
+
+		protected function create($query)
+		{
+			$result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
+			return mysqli_insert_id(self::$link);
+		}
+
+		protected function delete($query) 
+		{
+			$result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
+			return mysqli_affected_rows(self::$link);
+		}
 	}
