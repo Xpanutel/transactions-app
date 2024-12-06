@@ -15,11 +15,6 @@ class User extends Model
 		return $this->findMany("SELECT * FROM users");
 	}
 
-    // public function add($username, $userpass, $useremail) 
-    // {
-    //     return $this->create("INSERT INTO users (username, password, email) VALUES ($username, $userpass, $useremail)");
-    // }
-
     public function add($username, $userpass, $useremail) 
     {
         // Хэшируем пароль перед сохранением
