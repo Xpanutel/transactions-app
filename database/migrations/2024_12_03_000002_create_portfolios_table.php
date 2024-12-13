@@ -5,8 +5,9 @@ $startTime = microtime(true);
 $sql = "CREATE TABLE portfolios (
     portfolio_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    coin int NOT NULL,
+    coin_id VARCHAR(10) NOT NULL,
     quantity INT NOT NULL,
+    FOREIGN KEY (coin_id) REFERENCES coins(coin_id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 )";
 
