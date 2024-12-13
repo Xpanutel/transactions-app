@@ -43,13 +43,15 @@ class UserController extends Controller
 
             try {
                 $user = new User();
-                $userData = $user->getById($email); // Получаем данные пользователя по email
+                $userData = $user->getById($email);
 
                 if ($userData) {
-                    // Здесь вы можете проверить пароль, например, с помощью password_verify
                     if (password_verify($password, $userData['password'])) {
                         echo "The user has been successfully authorized.";
-                        $_SESSION['useremail'] = $email;
+                        $this->title = "Узнать цену крипты";
+                        return $this->render('users/index', [
+                            'userData' => $userData,
+                        ]);
                     } else {
                         throw new Exception("Неверный пароль.");
                     }
@@ -66,9 +68,7 @@ class UserController extends Controller
     }
 
     public function profile() {
-        if(isset($_SESSION['user'])) {
-            $userData = $_SESSION['user'];
-        }
+        return $this->render('users/index');
     }
 }
 

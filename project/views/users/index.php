@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p><?= "Имя пользователя: " . $userData['name'] . "\n"; ?></p>
+    <p><?= "Фамилия пользователя: " . $userData['surname'] . "\n"; ?></p>
+    <p><?= "Логин: " . $userData['login'] . "\n"; ?></p>
 </body>
 </html>
