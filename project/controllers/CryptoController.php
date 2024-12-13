@@ -7,7 +7,6 @@ use Project\Models\Crypto;
 
 class CryptoController extends Controller 
 {
-
     public function index() 
     {
         $crypto = new Crypto();

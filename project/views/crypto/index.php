@@ -6,10 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    
     <form method="POST" action="">
         <select name="currency" id="currency">
-            <?php foreach ($cryptocurrencies as $key => $value): ?>
-                <option value="<?php echo htmlspecialchars($key); ?>"><?php echo htmlspecialchars($value); ?></option>
+            <?php foreach ($cryptocurrencies as $cryptocurrency): ?>
+                <option value="<?php echo htmlspecialchars($cryptocurrency['coin_id']); ?>">
+                        <?php echo htmlspecialchars($cryptocurrency['fullname']); ?>
+                </option>
             <?php endforeach; ?>
         </select>
         <button type="submit">Узнать цену</button>
@@ -19,5 +22,6 @@
         <p>Выбранная валюта: <?php echo htmlspecialchars($currency);?></p>
         <p>Цена выбранной валюты: <?php echo htmlspecialchars($price); ?></p>
     <?php endif; ?>
+    
 </body>
 </html>
