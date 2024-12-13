@@ -2,26 +2,42 @@
 
 $users = [
     [
-        'username' => 'john_doe',
+        'login' => 'john_doe',
+        'name' => 'John',
+        'surname' => 'Doe',
         'password' => password_hash('password123', PASSWORD_DEFAULT), 
         'email' => 'john@example.com',
     ],
     [
-        'username' => 'jane_smith',
+        'login' => 'jane_smith',
+        'name' => 'Jane',
+        'surname' => 'Smith',
         'password' => password_hash('securepassword', PASSWORD_DEFAULT),
         'email' => 'jane@example.com',
     ],
     [
-        'username' => 'alice_jones',
+        'login' => 'alice_jones',
+        'name' => 'Alice',
+        'surname' => 'Jones',
         'password' => password_hash('mypassword', PASSWORD_DEFAULT),
         'email' => 'alice@example.com',
     ],
     [
-        'username' => 'bob_brown',
+        'login' => 'bob_brown',
+        'name' => 'Bob',
+        'surname' => 'Brown',
         'password' => password_hash('bobspassword', PASSWORD_DEFAULT),
         'email' => 'bob@example.com',
     ],
+    [
+        'login' => 'charlie_black',
+        'name' => 'Charlie',
+        'surname' => 'Black',
+        'password' => password_hash('charliespassword', PASSWORD_DEFAULT),
+        'email' => 'charlie@example.com',
+    ],
 ];
+
 
 $stmt = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
 
