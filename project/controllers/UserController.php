@@ -8,24 +8,6 @@ use \Project\Models\User;
 class UserController extends Controller 
 {
 
-    public function show() 
-    {
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
-            if (empty($username) || empty($password)) {
-                throw new Exception("All fields are required.");
-            }
-            
-             try {
-                User::getById($username);
-             } catch (\Throwable $th) {
-                echo $th->getMessage();
-             }
-        }
-    }
-
     public function create() 
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,7 +28,37 @@ class UserController extends Controller
             }
         } else {
             $this->title = 'Регистрация пользователя';
-            return $this->render('users/index');
+            return $this->render('users/reg');
+        }
+    }
+
+    public function login($useremail) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $password = $_POST['userpass'];
+            $email = $_POST['useremail'];
+
+            if (empty($password) || empty($email)) {
+                throw new Exception("All fields are required.");
+            }
+
+            try {
+                $user = new User();
+                $user->getById($email, $password);
+                echo "The user has been successfully authorized.";
+                $_SESSION['useremail'] = $email;
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        } else {
+            $this->title = 'Авторизация пользователя';
+            return $this->render('users/login');
+        }
+    }
+
+    public function profile() {
+        if(isset($_SESSION['user'])) {
+            $userData = $_SESSION['user'];
         }
     }
 }
+

@@ -5,9 +5,9 @@ use \Core\Model;
 	
 class User extends Model
 {
-	public function getById($username)
+	public function getById($email)
 	{
-		return $this->findOne("SELECT * FROM users WHERE username = $username");
+		return $this->findOne("SELECT * FROM users WHERE email = $email");
 	}
 		
 	public function getAll()
