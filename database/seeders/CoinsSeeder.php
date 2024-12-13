@@ -123,14 +123,14 @@ $coins = [
     ],
 ];
 
-$stmt = $conn->prepare("INSERT INTO coins (coind_id, fullname) VALUES (?, ?)");
+$stmt = $conn->prepare("INSERT INTO coins (coin_id, fullname) VALUES (?, ?)");
 
 foreach ($coins as $coin) {
-    $stmt->bind_param('ii', $coin['coind_id'],  $coin['fullname']);
+    $stmt->bind_param('ss', $coin['coin_id'],  $coin['fullname']);
     
     if ($stmt->execute()) {
-        echo "Coin entry " . $coin['coind_id'] . " added successfully.\n";
+        echo "Coin entry " . $coin['coin_id'] . " added successfully.\n";
     } else {
-        echo "Error adding coin entry " . $coin['coind_id'] .  ": " . $stmt->error . "\n";
+        echo "Error adding coin entry " . $coin['coin_id'] .  ": " . $stmt->error . "\n";
     }
 }

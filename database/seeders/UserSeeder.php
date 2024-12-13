@@ -39,13 +39,13 @@ $users = [
 ];
 
 
-$stmt = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO users (login, name, surname, password, email) VALUES (?, ?, ?, ?, ?)");
 
 foreach ($users as $user) {
-    $stmt->bind_param('sss', $user['username'], $user['password'], $user['email']);
+    $stmt->bind_param('sssss', $user['login'], $user['name'], $user['surname'], $user['password'], $user['email']);
     if($stmt->execute()) {
-        echo "User " .  $user['username'] . " created successfully.\n";
+        echo "User " .  $user['login'] . " created successfully.\n";
     }else{
-        echo "Error creating user " . $user['username'] . ": " . $stmt->error . "\n";
+        echo "Error creating user " . $user['login'] . ": " . $stmt->error . "\n";
     }
 }

@@ -3,7 +3,7 @@
 $transactions = [
     [
         'user_id' => 1,
-        'coin' => 1,
+        'coin_id' => 'bitcoin',
         'quantity' => 1,
         'transaction_type' => 'buy',
         'price' => 30000.00,
@@ -11,7 +11,7 @@ $transactions = [
     ],
     [
         'user_id' => 2,
-        'coin' => 2,
+        'coin_id' => 'bitcoin',
         'quantity' => 3,
         'transaction_type' => 'buy',
         'price' => 2000.00,
@@ -19,23 +19,15 @@ $transactions = [
     ],
     [
         'user_id' => 3,
-        'coin' => 3,
+        'coin_id' => 'bitcoin',
         'quantity' => 5,
         'transaction_type' => 'sell',
         'price' => 1.50,
         'created_at' => '2023-10-03 14:45:00',
     ],
     [
-        'user_id' => 4,
-        'coin' => 4,
-        'quantity' => 2,
-        'transaction_type' => 'buy',
-        'price' => 150.00,
-        'created_at' => '2023-10-04 09:15:00',
-    ],
-    [
         'user_id' => 5,
-        'coin' => 5,
+        'coin_id' => 'ripple',
         'quantity' => 10,
         'transaction_type' => 'sell',
         'price' => 1.20,
@@ -43,7 +35,7 @@ $transactions = [
     ],
     [
         'user_id' => 1,
-        'coin' => 2,
+        'coin_id' => 'ripple',
         'quantity' => 2,
         'transaction_type' => 'buy',
         'price' => 2500.00,
@@ -51,39 +43,15 @@ $transactions = [
     ],
     [
         'user_id' => 3,
-        'coin' => 1,
+        'coin_id' => 'aave',
         'quantity' => 1,
         'transaction_type' => 'buy',
         'price' => 32000.00,
         'created_at' => '2023-10-07 10:30:00',
     ],
     [
-        'user_id' => 2,
-        'coin' => 5,
-        'quantity' => 5,
-        'transaction_type' => 'buy',
-        'price' => 1.50,
-        'created_at' => '2023-10-08 15:45:00',
-    ],
-    [
-        'user_id' => 4,
-        'coin' => 3,
-        'quantity' => 10,
-        'transaction_type' => 'sell',
-        'price' => 2.00,
-        'created_at' => '2023-10-09 11:15:00',
-    ],
-    [
-        'user_id' => 5,
-        'coin' => 4,
-        'quantity' => 5,
-        'transaction_type' => 'buy',
-        'price' => 180.00,
-        'created_at' => '2023-10-10 14:00:00',
-    ],
-    [
         'user_id' => 1,
-        'coin' => 5,
+        'coin_id' => 'ethereum',
         'quantity' => 5,
         'transaction_type' => 'sell',
         'price' => 1.80,
@@ -91,7 +59,7 @@ $transactions = [
     ],
     [
         'user_id' => 2,
-        'coin' => 1,
+        'coin_id' => 'ethereum',
         'quantity' => 2,
         'transaction_type' => 'buy',
         'price' => 33000.00,
@@ -99,10 +67,10 @@ $transactions = [
     ],
 ];
 
-$stmt = $conn->prepare("INSERT INTO transactions (user_id, quantity, transaction_type, price) VALUES (?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO transactions (user_id, coin_id, quantity, transaction_type, price) VALUES (?, ?, ?, ?, ?)");
 
 foreach ($transactions as $transaction) {
-    $stmt->bind_param('iisi', $transaction['user_id'], $transaction['quantity'], $transaction['transaction_type'], $transaction['price']);
+    $stmt->bind_param('isisi', $transaction['user_id'], $transaction['coin_id'], $transaction['quantity'], $transaction['transaction_type'], $transaction['price']);
     
     if ($stmt->execute()) {
         echo "Transaction for user_id " . $transaction['user_id'] . " added successfully.\n";

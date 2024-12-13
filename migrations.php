@@ -1,6 +1,9 @@
 <?php
 
-require_once __DIR__ . '/app/config/connect.php';
+require_once __DIR__ . '/project/config/connection.php';
+
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+mysqli_query($conn, "SET NAMES 'utf8'");
 
 if (!defined('DIR')) {
     define('DIR', __DIR__);
@@ -33,6 +36,7 @@ foreach ($tables as $table) {
 
 $files = [
     '2024_12_03_000001_create_user_table.php',
+    '2024_12_13_000004_create_coins_table.php',
     '2024_12_03_000002_create_portfolios_table.php',
     '2024_12_03_000003_create_transactions_table.php'
 ];
