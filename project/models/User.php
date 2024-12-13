@@ -7,7 +7,7 @@ class User extends Model
 {
 	public function getById($email)
 	{
-		return $this->findOne("SELECT * FROM users WHERE email = $email");
+        return $this->findOne("SELECT * FROM users WHERE email = '$email'");
 	}
 		
 	public function getAll()

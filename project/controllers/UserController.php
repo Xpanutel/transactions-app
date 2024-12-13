@@ -43,9 +43,19 @@ class UserController extends Controller
 
             try {
                 $user = new User();
-                $user->getById($email, $password);
-                echo "The user has been successfully authorized.";
-                $_SESSION['useremail'] = $email;
+                $userData = $user->getById($email); // Получаем данные пользователя по email
+
+                if ($userData) {
+                    // Здесь вы можете проверить пароль, например, с помощью password_verify
+                    if (password_verify($password, $userData['password'])) {
+                        echo "The user has been successfully authorized.";
+                        $_SESSION['useremail'] = $email;
+                    } else {
+                        throw new Exception("Неверный пароль.");
+                    }
+                } else {
+                    throw new Exception("Пользователь не найден.");
+                }
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
