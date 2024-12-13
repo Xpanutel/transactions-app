@@ -23,7 +23,6 @@ class User extends Model
         return $this->create("INSERT INTO users (username, password, email) VALUES ('$username', '$hashedPassword', '$useremail')");
     }
 
-
     public function delete($id) 
     {
         return $this->delete("DELETE FROM users WHERE id = $id");
