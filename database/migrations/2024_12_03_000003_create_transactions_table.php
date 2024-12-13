@@ -3,8 +3,9 @@
 $startTime = microtime(true);
 
 $sql = "CREATE TABLE transactions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
+    conin INT NOT NULL,
     quantity INT NOT NULL,
     transaction_type ENUM('buy', 'sell') NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
