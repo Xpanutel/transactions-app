@@ -2,34 +2,32 @@
 
 $portfolios = [
     [
-        'user_id' => 1, 
-        'quantity' => 10
-    ],
-    [
         'user_id' => 1,
-        'quantity' => 5
-    ],
-    [
-        'user_id' => 2, 
-        'quantity' => 15
+        'coin' => 1,
+        'quantity' => 2,
     ],
     [
         'user_id' => 2,
-        'quantity' => 7
+        'coin' => 2,
+        'quantity' => 5,
     ],
     [
         'user_id' => 3,
-        'quantity' => 20
+        'coin' => 3,
+        'quantity' => 10,
     ],
     [
-        'user_id' => 3,
-        'quantity' => 3
+        'user_id' => 4,
+        'coin' => 4,
+        'quantity' => 7,
     ],
     [
-        'user_id' => 1,
-        'quantity' => 8
+        'user_id' => 5,
+        'coin' => 5,
+        'quantity' => 15,
     ],
 ];
+
 
 $stmt = $conn->prepare("INSERT INTO portfolios (user_id, quantity) VALUES (?, ?)");
 
