@@ -37,8 +37,11 @@ class PortfolioController extends Controller
                 $portfolio = new Portfolio();
 
                 if($quantity != 0) {
-                    $portfolio->add($user_id, $coin_id, $quantity);   
-                    echo 'Пользователь ' . $user_id . ' успешно купил ' . $coin_id . ' в количестве ' . $quantity;
+                    $portfolio->add($user_id, $coin_id, $quantity);  
+                    $price = $crypto->getPrice($coin_id);
+                    echo 'Пользователь ' . $user_id . ' успешно купил ' . $coin_id . ' в количестве ' . $quantity . "\n\n";
+                    echo 'Цена выбранной валюты: ' . $price . "\n\n";
+                    echo 'Общая стоимость: ' . $price*$quantity;
                 }
             } else {
                 return $this->render('crypto/buy', [

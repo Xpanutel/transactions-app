@@ -17,7 +17,6 @@ class User extends Model
 
     public function add($login, $name, $surname, $userpass, $useremail) 
     {
-        // Хэшируем пароль перед сохранением
         $hashedPassword = password_hash($userpass, PASSWORD_DEFAULT);
         return $this->create("INSERT INTO users (login, name, surname, password, email) VALUES 
             ('$login', '$name', '$surname', '$hashedPassword', '$useremail')");

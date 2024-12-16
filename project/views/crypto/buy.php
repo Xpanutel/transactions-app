@@ -12,16 +12,11 @@
             <h3><?= $cryptocurrency['fullname']?></h3>
             <input type="text" value="<?= $cryptocurrency['coin_id']?>" name="coin_id">
             <input type="number" name="quantity" placeholder="Введите значение">
-            <button>Купить</button>
+            <input type="button" name="transaction_type" placeholder="Купить" value="buy">
+            <input type="button" name="transaction_type" placeholder="Продать" value="sell">
+            <button name="transaction_type" placeholder="Купить" value="buy">Купить</button>
         </form>
     <?php endforeach; ?>
-
-    <button type="submit">Узнать цену</button>
-
-    <?php if ($price !== null): ?>
-        <p>Выбранная валюта: <?php echo htmlspecialchars($currency);?></p>
-        <p>Цена выбранной валюты: <?php echo htmlspecialchars($price); ?></p>
-    <?php endif; ?>
     
 </body>
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Регистрация</h1>
-    <form action="" method="POST">
+    <form action="" method="POST" class='reg-form'>
         <input type="text" placeholder="Введите логин" name="login">
         <input type="text" placeholder="Введите имя" name="name">
         <input type="text" placeholder="Введите фамилию" name="surname">
