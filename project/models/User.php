@@ -15,12 +15,12 @@ class User extends Model
 		return $this->findMany("SELECT * FROM users");
 	}
 
-    public function add($username, $userpass, $useremail) 
+    public function add($login, $name, $surname, $userpass, $useremail) 
     {
         // Хэшируем пароль перед сохранением
         $hashedPassword = password_hash($userpass, PASSWORD_DEFAULT);
-
-        return $this->create("INSERT INTO users (username, password, email) VALUES ('$username', '$hashedPassword', '$useremail')");
+        return $this->create("INSERT INTO users (login, name, surname, password, email) VALUES 
+            ('$login', '$name', '$surname', '$hashedPassword', '$useremail')");
     }
 
     public function delete($id) 

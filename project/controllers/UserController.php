@@ -12,17 +12,19 @@ class UserController extends Controller
     public function create() 
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
+            $login = $_POST['login'];
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
             $password = $_POST['userpass'];
             $email = $_POST['useremail'];
 
-            if (empty($username) || empty($password) || empty($email)) {
+            if (empty($name) || empty($surname) || empty($login) || empty($password) || empty($email)) {
                 throw new Exception("All fields are required.");
             }
 
             try {
                 $user = new User();
-                $user->add($username, $password, $email);
+                $user->add($login, $name, $surname, $password, $email);
                 echo "The user has been successfully registered.";
             } catch (Exception $e) {
                 echo $e->getMessage();

@@ -8,7 +8,9 @@
 <body>
     <h1>Регистрация</h1>
     <form action="" method="POST">
-        <input type="text" placeholder="Введите логин" name="username">
+        <input type="text" placeholder="Введите логин" name="login">
+        <input type="text" placeholder="Введите имя" name="name">
+        <input type="text" placeholder="Введите фамилию" name="surname">
         <input type="password" placeholder="Введите пароль" name="userpass">
         <input type="email" placeholder="Введите почту" name="useremail">
         <button>Отправить</button>
