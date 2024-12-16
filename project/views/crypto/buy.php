@@ -10,8 +10,8 @@
     <?php foreach ($cryptocurrencies as $cryptocurrency): ?>
         <form action="" method="POST">
             <h3><?= $cryptocurrency['fullname']?></h3>
-            <input type="hidden" value="<?= $cryptocurrency['coin_id']?>" name="coin_id">
-            <input type="text" name="quantity" placeholder="Введите значение">
+            <input type="text" value="<?= $cryptocurrency['coin_id']?>" name="coin_id">
+            <input type="number" name="quantity" placeholder="Введите значение">
             <button>Купить</button>
         </form>
     <?php endforeach; ?>

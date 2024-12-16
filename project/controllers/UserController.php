@@ -1,9 +1,10 @@
 <?php
-
 namespace Project\Controllers;
 
 use \Core\Controller;
 use \Project\Models\User;
+
+session_start();
 
 class UserController extends Controller 
 {
@@ -49,6 +50,7 @@ class UserController extends Controller
                     if (password_verify($password, $userData['password'])) {
                         echo "The user has been successfully authorized.";
                         $this->title = "Узнать цену крипты";
+                        $_SESSION['userData'] = $userData;
                         return $this->render('users/index', [
                             'userData' => $userData,
                         ]);

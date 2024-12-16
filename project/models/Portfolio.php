@@ -8,7 +8,7 @@ class Portfolio extends Model
 {
     public function getById($id)
 	{
-        return $this->findOne("SELECT * FROM portfolios WHERE id = $id");
+        return $this->findOne("SELECT * FROM portfolios WHERE coin_id = '$id'");
 	}
 		
 	public function getAll()
