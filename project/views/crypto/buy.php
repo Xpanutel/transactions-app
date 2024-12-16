@@ -12,9 +12,8 @@
             <h3><?= $cryptocurrency['fullname']?></h3>
             <input type="text" value="<?= $cryptocurrency['coin_id']?>" name="coin_id">
             <input type="number" name="quantity" placeholder="Введите значение">
-            <input type="button" name="transaction_type" placeholder="Купить" value="buy">
-            <input type="button" name="transaction_type" placeholder="Продать" value="sell">
             <button name="transaction_type" placeholder="Купить" value="buy">Купить</button>
+            <button name="transaction_type" placeholder="Продать" value="sell">Продать</button>
         </form>
     <?php endforeach; ?>
     
