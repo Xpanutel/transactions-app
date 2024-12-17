@@ -22,6 +22,15 @@ class UserController extends Controller
                 throw new Exception("All fields are required.");
             }
 
+            $user = new User();
+
+            $user->getByID($email)
+            if(!empty($user)) {
+                throw new Exception("Данный email уже используется!");
+            } else if(!empty($login)) {
+                throw new Exception("Данный login уже используется!");
+            }
+            
             try {
                 $user = new User();
                 $user->add($login, $name, $surname, $password, $email);
