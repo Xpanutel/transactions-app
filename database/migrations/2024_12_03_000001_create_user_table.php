@@ -9,6 +9,7 @@ $sql = "CREATE TABLE users (
     surname VARCHAR(50) NOT NULL, 
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
+    balance DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
