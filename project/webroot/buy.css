@@ -1,0 +1,83 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #1c1c1c, #3a3a3a); /* Темный градиент */
+    color: #ffffff;
+    margin: 0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.crypto-form {
+    background: linear-gradient(to bottom right, #4e54c8, #8f94fb); /* Градиент для формы */
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    width: 300px; /* Ширина формы */
+    text-align: center; /* Центрируем текст */
+    transition: transform 0.2s;
+}
+
+.crypto-form:hover {
+    transform: scale(1.02); /* Эффект при наведении */
+}
+
+.crypto-form h3 {
+    margin: 0 0 15px;
+    font-size: 20px; /* Размер заголовка */
+}
+
+.crypto-form input[type="number"] {
+    width: calc(100% - 20px); /* Полная ширина с учетом отступов */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    color: #ffffff; /* Белый текст */
+    transition: background 0.3s;
+}
+
+.crypto-form input[type="number"]:focus {
+    background-color: rgba(255, 255, 255, 0.2); /* Изменение фона при фокусе */
+    outline: none; /* Убираем обводку */
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white; /* Цвет текста кнопки */
+    transition: background 0.3s, transform 0.2s;
+    width: 48%; /* Ширина кнопок */
+}
+
+.btn.buy {
+    background: #28a745; /* Цвет кнопки "Купить" */
+}
+
+.btn.sell {
+    background: #dc3545; /* Цвет кнопки "Продать" */
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Эффект при наведении */
+}
+
+.btn.buy:hover {
+    background: #218838; /* Цвет при наведении на кнопку "Купить" */
+}
+
+.btn.sell:hover {
+    background: #c82333; /* Цвет при наведении на кнопку "Продать" */
+}
